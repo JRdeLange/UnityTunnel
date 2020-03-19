@@ -14,6 +14,8 @@ public class Bullet : MonoBehaviour
     {
         stageTransform = GameObject.FindGameObjectWithTag("Stage").GetComponent<Transform>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        
     }
 
     // Update is called once per frame

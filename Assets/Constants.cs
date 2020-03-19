@@ -5,12 +5,13 @@ using UnityEngine;
 public class Constants : MonoBehaviour
 {
 
-    float enemySpeed = 25;
+    float enemySpeed = 14;
+    float obstacleSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        obstacleSpeed = enemySpeed;
     }
 
     // Update is called once per frame
@@ -21,5 +22,9 @@ public class Constants : MonoBehaviour
 
     public float getEnemySpeed(){
         return enemySpeed;
+    }
+
+    public float getObstacleSpeed(){
+        return obstacleSpeed;
     }
 }

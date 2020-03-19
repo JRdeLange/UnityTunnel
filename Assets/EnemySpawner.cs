@@ -19,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (nextEnemyTime < Time.time){
+        if (nextEnemyTime < Time.timeSinceLevelLoad){
             nextEnemyTime += timeBetweenEnemies;
             SpawnEnemy();
         }

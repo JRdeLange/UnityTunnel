@@ -11,23 +11,37 @@ public class Player : MonoBehaviour
     string moveAxis = "Horizontal";
     Transform stageTransform;
     int points;
+    float bulletsPerSecond = 6.5f;
+    float timeBetweenBullets;
+    float nextBulletTime;
 
     // Start is called before the first frame update
     void Start()
     {
         stageTransform = GameObject.FindGameObjectWithTag("Stage").GetComponent<Transform>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         Move();
-        
+
+        timeBetweenBullets = 1f / bulletsPerSecond;
+
         Fire();
-        
+
+
     }
 
     void Fire(){
+
+        if (nextBulletTime < Time.timeSinceLevelLoad){
+            nextBulletTime += timeBetweenBullets;
+            Vector3 spawnPoint = transform.position;
+            Instantiate(bullet, spawnPoint, Quaternion.identity);
+        }
+
         if (Input.GetButtonDown(fireAxis)){
             Vector3 spawnPoint = transform.position;
             Instantiate(bullet, spawnPoint, Quaternion.identity);
